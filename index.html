@@ -1,1 +1,570 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chelsea Tobuhu — Profil Pribadi</title>
+  <!-- Memuat Tailwind CSS untuk tata letak responsif dan estetika modern -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Memuat font Google Inter dan Playfair Display untuk nuansa hangat & elegan -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <script>
+    // Konfigurasi tema warna hangat dan elegan khas Sulawesi Utara / Langowan
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            warmCream: '#FDF8F4',
+            roseClay: '#C97B63',
+            deepEspresso: '#2A1F1D',
+            softSand: '#F4EAE2',
+            mutedCocoa: '#6E5A54',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Transisi halus saat menggulir halaman */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animasi muncul lembut untuk elemen profil */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .delay-150 {
+      animation-delay: 0.15s;
+    }
+
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+  </style>
+</head>
+<body class="bg-warmCream text-deepEspresso font-sans antialiased selection:bg-roseClay/20 selection:text-deepEspresso">
+
+  <!-- Navigasi Atas Responsif -->
+  <header class="sticky top-0 z-40 w-full bg-warmCream/90 backdrop-blur-md border-b border-roseClay/15">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#beranda" class="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-deepEspresso flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-roseClay inline-block"></span>
+        <span>Chelsea Tobuhu</span>
+      </a>
+
+      <!-- Menu Navigasi Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-mutedCocoa">
+        <a href="#beranda" class="hover:text-roseClay transition-colors py-2">Beranda</a>
+        <a href="#tentang" class="hover:text-roseClay transition-colors py-2">Tentang Saya</a>
+        <a href="#galeri" class="hover:text-roseClay transition-colors py-2">Galeri</a>
+        <a href="#cerita-langowan" class="hover:text-roseClay transition-colors py-2">Akar & Cerita</a>
+        <a href="#kontak" class="px-4 py-2 rounded-full bg-deepEspresso text-warmCream hover:bg-roseClay transition-colors">
+          Sapa Saya
+        </a>
+      </nav>
+
+      <!-- Tombol Menu Mobile -->
+      <button
+        id="mobileMenuBtn"
+        type="button"
+        aria-label="Buka Menu Navigasi"
+        class="md:hidden p-3 rounded-xl text-deepEspresso hover:bg-softSand transition-colors"
+      >
+        <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Dropdown Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden bg-warmCream border-b border-roseClay/15 px-4 pb-5 pt-2 space-y-2">
+      <a href="#beranda" class="block px-4 py-3 rounded-xl text-base font-medium text-deepEspresso hover:bg-softSand transition-colors">Beranda</a>
+      <a href="#tentang" class="block px-4 py-3 rounded-xl text-base font-medium text-deepEspresso hover:bg-softSand transition-colors">Tentang Saya</a>
+      <a href="#galeri" class="block px-4 py-3 rounded-xl text-base font-medium text-deepEspresso hover:bg-softSand transition-colors">Galeri</a>
+      <a href="#cerita-langowan" class="block px-4 py-3 rounded-xl text-base font-medium text-deepEspresso hover:bg-softSand transition-colors">Akar & Cerita</a>
+      <a href="#kontak" class="block px-4 py-3 rounded-xl text-base font-medium text-center bg-deepEspresso text-warmCream hover:bg-roseClay transition-colors">Sapa Saya</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Bagian Halaman Depan (Hero Section) dengan Foto Chelsea Tobuhu -->
+    <section id="beranda" class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24 lg:py-20">
+      <!-- Dekorasi latar lembut -->
+      <div aria-hidden="true" class="pointer-events-none absolute -top-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-roseClay/10 blur-3xl"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute bottom-0 -left-24 w-72 h-72 rounded-full bg-softSand blur-3xl"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+          <!-- Kolom Foto Utama di Halaman Depan -->
+          <div class="lg:col-span-5 order-1 lg:order-2 animate-fade-up">
+            <div class="relative mx-auto max-w-sm sm:max-w-md lg:max-w-full">
+              <!-- Bingkai aksen artistik di belakang foto -->
+              <div aria-hidden="true" class="absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 rounded-3xl bg-roseClay/20"></div>
+
+              <div class="relative overflow-hidden rounded-3xl bg-softSand shadow-xl border border-roseClay/20 aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3]">
+                <img
+                  id="chelseaHeroPhoto"
+                  src="grdr 2026-09-09 1931012C21ED29D818.jpeg"
+                  alt="Chelsea Tobuhu"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+
+              <!-- Lencana informasi singkat di bawah/pojok foto -->
+              <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-5 sm:-left-5 bg-white/95 backdrop-blur-sm border border-roseClay/20 rounded-2xl px-4 py-3 shadow-lg flex items-center gap-3">
+                <span class="w-10 h-10 rounded-xl bg-softSand text-roseClay flex items-center justify-center font-serif font-bold text-lg shrink-0">
+                  CT
+                </span>
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-mutedCocoa font-medium">Lahir di Langowan</p>
+                  <p class="text-sm font-semibold text-deepEspresso">04 April 2007</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Teks Perkenalan di Halaman Depan -->
+          <div class="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left space-y-6 animate-fade-up delay-150">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-softSand border border-roseClay/20 text-xs sm:text-sm font-medium text-mutedCocoa">
+              <span>Profil Pribadi</span>
+              <span class="text-roseClay">•</span>
+              <span>Langowan, Sulawesi Utara</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-deepEspresso leading-tight">
+              Halo, saya <span class="text-roseClay italic">Chelsea Tobuhu</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-mutedCocoa leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Lahir pada <strong class="font-semibold text-deepEspresso">04 April 2007</strong> di <strong class="font-semibold text-deepEspresso">Langowan</strong>. Halaman ini adalah ruang pribadi saya untuk berbagi cerita, identitas diri, serta perjalanan bertumbuh dengan kehangatan dan rasa syukur.
+            </p>
+
+            <!-- Ringkasan Cepat Profil -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2 text-left">
+              <div class="p-4 rounded-2xl bg-white/80 border border-roseClay/15 shadow-sm">
+                <p class="text-xs text-mutedCocoa">Nama Lengkap</p>
+                <p class="font-semibold text-deepEspresso mt-0.5">Chelsea Tobuhu</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/80 border border-roseClay/15 shadow-sm">
+                <p class="text-xs text-mutedCocoa">Tanggal Lahir</p>
+                <p class="font-semibold text-deepEspresso mt-0.5">04 April 2007</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/80 border border-roseClay/15 shadow-sm">
+                <p class="text-xs text-mutedCocoa">Tempat Lahir</p>
+                <p class="font-semibold text-deepEspresso mt-0.5">Langowan</p>
+              </div>
+            </div>
+
+            <!-- Tombol Aksi -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+              <a
+                href="#tentang"
+                class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-deepEspresso text-warmCream font-medium text-sm sm:text-base hover:bg-roseClay transition-colors shadow-sm text-center"
+              >
+                Kenali Lebih Dekat
+              </a>
+              <a
+                href="#kontak"
+                class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white text-deepEspresso border border-roseClay/30 font-medium text-sm sm:text-base hover:bg-softSand transition-colors text-center"
+              >
+                Kirim Pesan
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Tentang Saya -->
+    <section id="tentang" class="py-14 sm:py-20 bg-white/70 border-y border-roseClay/15">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-roseClay">Tentang Saya</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-deepEspresso mt-2">
+            Perjalanan & Kepribadian
+          </h2>
+          <p class="text-mutedCocoa mt-3 text-sm sm:text-base">
+            Sedikit gambaran mengenai siapa saya, nilai yang saya pegang, dan hal-hal yang memberi warna dalam keseharian.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div class="p-6 sm:p-8 rounded-3xl bg-warmCream border border-roseClay/15 shadow-sm space-y-4">
+            <div class="w-11 h-11 rounded-2xl bg-softSand text-roseClay flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-semibold text-deepEspresso">Lahir 04 April 2007</h3>
+            <p class="text-mutedCocoa leading-relaxed text-sm sm:text-base">
+              Dilahirkan pada tanggal 4 April 2007, saya tumbuh menjadi pribadi yang menghargai proses, ketulusan, dan semangat belajar dalam setiap fase kehidupan. Setiap tahunnya menjadi pengingat untuk melangkah dengan lebih bijak dan penuh rasa syukur.
+            </p>
+          </div>
+
+          <div class="p-6 sm:p-8 rounded-3xl bg-warmCream border border-roseClay/15 shadow-sm space-y-4">
+            <div class="w-11 h-11 rounded-2xl bg-softSand text-roseClay flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-semibold text-deepEspresso">Nilai & Keseharian</h3>
+            <p class="text-mutedCocoa leading-relaxed text-sm sm:text-base">
+              Bagi saya, hubungan yang hangat, kejujuran, dan sikap terbuka terhadap pengalaman baru adalah hal yang bermakna. Saya senang menikmati momen sederhana, mendengarkan cerita orang lain, dan mengekspresikan diri dengan gaya yang autentik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Galeri Foto -->
+    <section id="galeri" class="py-14 sm:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-roseClay">Galeri Momen</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-deepEspresso mt-2">
+            Potret & Gaya Saya
+          </h2>
+          <p class="text-mutedCocoa mt-3 text-sm sm:text-base">
+            Beberapa potret favorit yang menyimpan cerita dan suasana hangat. Ketuk foto untuk melihat lebih jelas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+          <!-- Foto Baru yang Ditambahkan -->
+          <button
+            type="button"
+            data-lightbox-src="IMG_2718.heic"
+            data-lightbox-caption="Momen santai penuh gaya — Chelsea Tobuhu"
+            class="gallery-item group text-left rounded-3xl overflow-hidden bg-white border border-roseClay/20 shadow-sm hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-roseClay/50 flex flex-col"
+          >
+            <div class="relative w-full aspect-[3/4] overflow-hidden bg-softSand">
+              <img
+                src="IMG_2718.heic"
+                alt="Potret santai Chelsea Tobuhu di kafe"
+                class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-deepEspresso/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                <span class="text-xs font-medium text-warmCream bg-deepEspresso/70 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  Lihat Penuh
+                </span>
+              </div>
+            </div>
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider text-roseClay font-semibold">Potret Terbaru</p>
+                <h3 class="font-serif text-lg sm:text-xl font-semibold text-deepEspresso mt-1">Suasana Hangat di Kafe</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-mutedCocoa mt-2">Menikmati waktu santai dengan gaya kasual yang elegan.</p>
+            </div>
+          </button>
+
+          <!-- Foto Profil Utama -->
+          <button
+            type="button"
+            data-lightbox-src="grdr 2026-09-09 1931012C21ED29D818.jpeg"
+            data-lightbox-caption="Potret utama — Chelsea Tobuhu"
+            class="gallery-item group text-left rounded-3xl overflow-hidden bg-white border border-roseClay/20 shadow-sm hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-roseClay/50 flex flex-col"
+          >
+            <div class="relative w-full aspect-[3/4] overflow-hidden bg-softSand">
+              <img
+                src="grdr 2026-09-09 1931012C21ED29D818.jpeg"
+                alt="Potret Chelsea Tobuhu"
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-deepEspresso/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                <span class="text-xs font-medium text-warmCream bg-deepEspresso/70 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  Lihat Penuh
+                </span>
+              </div>
+            </div>
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-wider text-roseClay font-semibold">Potret Utama</p>
+                <h3 class="font-serif text-lg sm:text-xl font-semibold text-deepEspresso mt-1">Chelsea Tobuhu</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-mutedCocoa mt-2">Senyum hangat dan autentik untuk halaman depan profil.</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Akar & Cerita Langowan -->
+    <section id="cerita-langowan" class="py-14 sm:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-softSand/90 border border-roseClay/20 p-6 sm:p-10 lg:p-12 shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+              <span class="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-roseClay">
+                Tempat Kelahiran
+              </span>
+              <h2 class="font-serif text-3xl sm:text-4xl font-bold text-deepEspresso">
+                Langowan, Tanah Kelahiran yang Penuh Kenangan
+              </h2>
+              <p class="text-mutedCocoa leading-relaxed text-sm sm:text-base">
+                Langowan adalah titik awal perjalanan hidup saya. Suasana daerah yang asri, kekeluargaan yang erat, serta keramahan masyarakatnya menjadi bagian penting dari identitas diri saya sebagai Chelsea Tobuhu. Ke mana pun langkah pergi, asal-usul dari Langowan selalu menjadi bagian yang membanggakan.
+              </p>
+            </div>
+
+            <div class="lg:col-span-4">
+              <div class="bg-white rounded-2xl p-6 border border-roseClay/15 space-y-3">
+                <div class="flex items-center justify-between border-b border-roseClay/10 pb-3">
+                  <span class="text-xs uppercase tracking-wider text-mutedCocoa">Biodata Singkat</span>
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-softSand text-roseClay">Profil</span>
+                </div>
+                <div class="space-y-2.5 text-sm">
+                  <div class="flex justify-between gap-2">
+                    <span class="text-mutedCocoa">Nama</span>
+                    <span class="font-semibold text-deepEspresso text-right">Chelsea Tobuhu</span>
+                  </div>
+                  <div class="flex justify-between gap-2">
+                    <span class="text-mutedCocoa">Lahir</span>
+                    <span class="font-semibold text-deepEspresso text-right">04 April 2007</span>
+                  </div>
+                  <div class="flex justify-between gap-2">
+                    <span class="text-mutedCocoa">Kota Lahir</span>
+                    <span class="font-semibold text-deepEspresso text-right">Langowan</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Sapa & Kirim Pesan -->
+    <section id="kontak" class="py-14 sm:py-20 bg-white/70 border-t border-roseClay/15">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <span class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-roseClay">Kontak & Sapaan</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-deepEspresso mt-2">
+            Tinggalkan Pesan untuk Chelsea
+          </h2>
+          <p class="text-mutedCocoa mt-2 text-sm sm:text-base">
+            Ingin menyapa atau menitipkan catatan singkat? Silakan tulis pesan Anda di bawah ini.
+          </p>
+        </div>
+
+        <form id="greetingForm" class="bg-warmCream rounded-3xl p-6 sm:p-8 border border-roseClay/20 shadow-sm space-y-5">
+          <div>
+            <label for="senderName" class="block text-sm font-medium text-deepEspresso mb-1.5">Nama Anda</label>
+            <input
+              type="text"
+              id="senderName"
+              name="senderName"
+              required
+              placeholder="Masukkan nama Anda"
+              class="w-full px-4 py-3 rounded-xl bg-white border border-roseClay/25 text-deepEspresso placeholder:text-mutedCocoa/60 focus:outline-none focus:border-roseClay transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="senderMessage" class="block text-sm font-medium text-deepEspresso mb-1.5">Pesan</label>
+            <textarea
+              id="senderMessage"
+              name="senderMessage"
+              rows="4"
+              required
+              placeholder="Tulis sapaan atau pesan Anda..."
+              class="w-full px-4 py-3 rounded-xl bg-white border border-roseClay/25 text-deepEspresso placeholder:text-mutedCocoa/60 focus:outline-none focus:border-roseClay transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Kotak notifikasi interaktif (tanpa alert bawaan browser) -->
+          <div id="formFeedback" class="hidden rounded-2xl p-4 text-sm font-medium border"></div>
+
+          <button
+            type="submit"
+            class="w-full py-3.5 px-6 rounded-full bg-deepEspresso text-warmCream font-medium text-sm sm:text-base hover:bg-roseClay transition-colors shadow-sm"
+          >
+            Kirim Sapaan
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-deepEspresso text-warmCream py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-serif text-lg font-semibold">Chelsea Tobuhu</p>
+        <p class="text-xs text-warmCream/70">Lahir 04 April 2007 • Langowan</p>
+      </div>
+      <p class="text-xs text-warmCream/70">
+        &copy; <span id="currentYear">2026</span> Profil Pribadi Chelsea Tobuhu. Semua hak cipta dilindungi.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal Lightbox untuk Pratinjau Foto Layar Penuh -->
+  <div
+    id="photoLightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-deepEspresso/85 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Pratinjau Foto"
+  >
+    <div class="relative max-w-2xl w-full bg-warmCream rounded-3xl overflow-hidden shadow-2xl border border-roseClay/20">
+      <button
+        id="closeLightboxBtn"
+        type="button"
+        aria-label="Tutup Pratinjau"
+        class="absolute top-3 right-3 z-10 p-2.5 rounded-full bg-deepEspresso/80 text-warmCream hover:bg-roseClay transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="bg-softSand flex items-center justify-center max-h-[75vh] overflow-hidden">
+        <img id="lightboxImage" src="" alt="Pratinjau Foto Chelsea Tobuhu" class="max-h-[75vh] w-auto max-w-full object-contain" />
+      </div>
+      <div class="px-5 py-4 text-center">
+        <p id="lightboxCaption" class="text-sm font-medium text-deepEspresso"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Membungkus skrip dalam blok try/catch untuk keamanan eksekusi
+    try {
+      // Mengatur tahun berjalan secara otomatis pada footer
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Mengatur toggle menu navigasi pada perangkat mobile
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIconOpen = document.getElementById('menuIconOpen');
+      const menuIconClose = document.getElementById('menuIconClose');
+
+      if (mobileMenuBtn && mobileMenu && menuIconOpen && menuIconClose) {
+        mobileMenuBtn.addEventListener('click', function () {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden', !isHidden);
+          menuIconOpen.classList.toggle('hidden', isHidden);
+          menuIconClose.classList.toggle('hidden', !isHidden);
+        });
+
+        // Menutup menu mobile otomatis saat tautan diklik
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+            menuIconOpen.classList.remove('hidden');
+            menuIconClose.classList.add('hidden');
+          });
+        });
+      }
+
+      // Menangani pengiriman formulir sapaan dengan umpan balik visual yang ramah
+      const greetingForm = document.getElementById('greetingForm');
+      const formFeedback = document.getElementById('formFeedback');
+
+      if (greetingForm && formFeedback) {
+        greetingForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          const nameInput = document.getElementById('senderName');
+          const messageInput = document.getElementById('senderMessage');
+          const senderName = nameInput ? nameInput.value.trim() : '';
+          const senderMessage = messageInput ? messageInput.value.trim() : '';
+
+          formFeedback.classList.remove('hidden', 'bg-roseClay/15', 'text-roseClay', 'border-roseClay/30', 'bg-emerald-50', 'text-emerald-800', 'border-emerald-200');
+
+          if (!senderName || !senderMessage) {
+            formFeedback.textContent = 'Mohon lengkapi nama dan pesan Anda terlebih dahulu.';
+            formFeedback.classList.add('bg-roseClay/15', 'text-roseClay', 'border-roseClay/30');
+            return;
+          }
+
+          // Membersihkan karakter HTML dasar untuk menampilkan teks dengan aman
+          const safeName = senderName.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          formFeedback.textContent = 'Terima kasih, ' + safeName + '! Sapaan Anda untuk Chelsea Tobuhu telah dicatat di halaman ini.';
+          formFeedback.classList.add('bg-emerald-50', 'text-emerald-800', 'border-emerald-200');
+
+          greetingForm.reset();
+        });
+      }
+
+      // Mengatur fitur pratinjau foto (lightbox) pada bagian Galeri
+      const photoLightbox = document.getElementById('photoLightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      function closeLightbox() {
+        if (photoLightbox) {
+          photoLightbox.classList.add('hidden');
+          photoLightbox.classList.remove('flex');
+        }
+      }
+
+      if (photoLightbox && lightboxImage && lightboxCaption && galleryItems.length > 0) {
+        galleryItems.forEach(function (item) {
+          item.addEventListener('click', function () {
+            const imgSrc = item.getAttribute('data-lightbox-src');
+            const caption = item.getAttribute('data-lightbox-caption') || 'Chelsea Tobuhu';
+            if (imgSrc) {
+              lightboxImage.src = imgSrc;
+              lightboxCaption.textContent = caption;
+              photoLightbox.classList.remove('hidden');
+              photoLightbox.classList.add('flex');
+            }
+          });
+        });
+
+        if (closeLightboxBtn) {
+          closeLightboxBtn.addEventListener('click', closeLightbox);
+        }
+
+        // Menutup modal saat area luar gambar diklik atau tombol Escape ditekan
+        photoLightbox.addEventListener('click', function (event) {
+          if (event.target === photoLightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closeLightbox();
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Terjadi kesalahan pada skrip halaman profil:', error);
+    }
+  </script>
+</body>
+</html>
